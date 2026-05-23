@@ -54,6 +54,7 @@
 @import './5 - components/pill';
 @import './5 - components/tooltip';
 @import './5 - components/color-chooser';
+@import './5 - components/theme-toggle';
 
 // -- Admin components
 @import './5 - components/admin/grid';
@@ -85,3 +86,4 @@
 @import './6 - utils/state';
 @import './6 - utils/animation';
 @import './6 - utils/utils';
+@import './6 - utils/dark-mode';

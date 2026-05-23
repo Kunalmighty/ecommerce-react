@@ -13,6 +13,7 @@ import Badge from './Badge';
 import FiltersToggle from './FiltersToggle';
 import MobileNavigation from './MobileNavigation';
 import SearchBar from './SearchBar';
+import ThemeToggle from './ThemeToggle';
 
 const Navigation = () => {
   const navbar = useRef(null);
@@ -86,6 +87,7 @@ const Navigation = () => {
         </FiltersToggle>
       )}
       <SearchBar />
+      <ThemeToggle />
       <ul className="navigation-menu">
         <li className="navigation-menu-item">
           <BasketToggle>

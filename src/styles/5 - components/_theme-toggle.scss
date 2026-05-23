@@ -1,0 +1,28 @@
+.theme-toggle {
+  width: 4rem;
+  height: 4rem;
+  margin: 0 $s-size;
+  padding: 0;
+  border-radius: 50%;
+  color: $heading-color;
+  border: 1px solid $border-color;
+  background: $white;
+  flex: 0 0 4rem;
+
+  &:hover {
+    color: $heading-color;
+    border: 1px solid $border-color-focus;
+    background: $background-color-01;
+  }
+
+  svg {
+    font-size: 1.8rem;
+  }
+}
+
+.mobile-navigation .theme-toggle {
+  width: 3.8rem;
+  height: 3.8rem;
+  margin: 0 .5rem;
+  flex-basis: 3.8rem;
+}

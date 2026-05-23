@@ -7,6 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Salinaka - React Ecommerce Store</title>
     <link rel="icon" type="image/png" href="/static/favicon.png" />
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('salinaka-theme');
+                var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+                if (theme === 'dark' || (!theme && prefersDark)) {
+                    document.documentElement.classList.add('theme-dark');
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.classList.add('theme-light');
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (error) {
+                document.documentElement.classList.add('theme-light');
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        }());
+    </script>
 </head>
 
 <body>

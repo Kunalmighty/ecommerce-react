@@ -4,6 +4,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import UserAvatar from '@/views/account/components/UserAvatar';
+import ThemeToggle from './ThemeToggle';
 
 const AdminNavigation = () => {
   const { isAuthenticating, profile } = useSelector((state) => ({
@@ -20,6 +21,9 @@ const AdminNavigation = () => {
         </Link>
       </div>
       <ul className="navigation-menu">
+        <li className="navigation-menu-item">
+          <ThemeToggle />
+        </li>
         <li className="navigation-menu-item">
           <UserAvatar
             isAuthenticating={isAuthenticating}

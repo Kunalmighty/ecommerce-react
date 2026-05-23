@@ -1,0 +1,278 @@
+html.theme-dark {
+  color-scheme: dark;
+
+  body,
+  #app {
+    background: #111316;
+    color: #d8dde3;
+  }
+
+  body,
+  .content,
+  .content-admin,
+  .product-search {
+    background: #111316;
+  }
+
+  p,
+  span,
+  label,
+  select,
+  input,
+  textarea,
+  .navigation-menu-main li a,
+  .navigation-menu-link,
+  .button-link,
+  .product-card-brand,
+  .basket-total-title,
+  .mobile-navigation-search-title,
+  .user-profile-email,
+  .user-tab-nav a,
+  .input-message-neutral {
+    color: #b8c0cc;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  a,
+  .product-card-price,
+  .product-card-name,
+  .product-list-title,
+  .display-header a,
+  .navigation-menu-active,
+  .theme-toggle,
+  .mobile-navigation-logo h2 {
+    color: #f5f7fa;
+  }
+
+  a:hover,
+  .navigation-menu-main li a:hover,
+  .navigation-menu-link:hover {
+    color: #ffffff;
+  }
+
+  input,
+  textarea,
+  select,
+  .input-form,
+  .react-tel-input input[type=tel] {
+    background: #171a1f !important;
+    border-color: #353b45 !important;
+    color: #f5f7fa !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: #8d96a3;
+  }
+
+  input[type=checkbox] + label:before,
+  input[type=radio] + label:before {
+    background-color: #171a1f;
+    border-color: #4a5260;
+  }
+
+  input[type=checkbox]:checked + label:before,
+  input[type=radio]:checked + label:before {
+    background: #f5f7fa;
+    border-color: #f5f7fa;
+  }
+
+  input[type=checkbox]:checked + label:after,
+  input[type=radio]:checked + label:after {
+    border-color: #111316;
+  }
+
+  .button {
+    background: #f5f7fa;
+    border-color: #f5f7fa;
+    color: #111316;
+
+    &:hover {
+      background: #dce3ec;
+      border-color: #dce3ec;
+      color: #111316;
+    }
+  }
+
+  .button-link {
+    background: transparent;
+    border-color: transparent;
+    color: #f5f7fa;
+
+    &:hover {
+      background: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .button-muted,
+  .button-border,
+  .button-border-gray,
+  .theme-toggle {
+    background: #171a1f;
+    border-color: #353b45;
+    color: #d8dde3;
+
+    &:hover {
+      background: #20242b;
+      border-color: #4a5260;
+      color: #ffffff;
+    }
+  }
+
+  .button-danger {
+    background: $red;
+    border-color: $red;
+    color: $white;
+  }
+
+  .navigation,
+  .navigation-admin,
+  .mobile-navigation,
+  .product-search-header,
+  .basket,
+  .basket-header,
+  .basket-checkout,
+  .searchbar-recent,
+  .product-admin-header,
+  .product-admin-filter-wrapper,
+  .user-nav-sub,
+  .user-tab,
+  .modal,
+  .toast,
+  .ReactModal__Content {
+    background: #171a1f !important;
+    border-color: #353b45;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  }
+
+  .is-nav-scrolled {
+    background: #171a1f !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  }
+
+  .logo img,
+  .footer-logo img,
+  img[alt='Footer logo'] {
+    filter: invert(1) grayscale(1) contrast(1.15);
+  }
+
+  .searchbar-input,
+  .product-search-input {
+    background: #111316 !important;
+  }
+
+  .searchbar-icon,
+  .anticon,
+  .fa {
+    color: currentColor;
+  }
+
+  .searchbar-recent-header:after,
+  .basket-checkout:before {
+    background: #353b45;
+  }
+
+  .searchbar-recent-wrapper:hover,
+  .navigation-menu-main li a:hover,
+  .navigation-menu-link:hover,
+  .user-nav-sub-link:hover,
+  .user-tab-nav a:hover,
+  .product-search-recent:hover {
+    background: #20242b;
+  }
+
+  .product-card,
+  .product-display,
+  .product-modal,
+  .product-modal-image-collection,
+  .product-modal-image-collection-wrapper,
+  .basket-item,
+  .checkout-fieldset,
+  .checkout-shipping-wrapper,
+  .checkout-total,
+  .auth-content,
+  .auth-main,
+  .product-form-image-wrapper,
+  .product-form-collection-image,
+  .profile-banner,
+  .user-profile,
+  .user-tab-content,
+  .admin-product-card {
+    background: #171a1f !important;
+    border-color: #353b45 !important;
+  }
+
+  .product-card-img-wrapper,
+  .product-display-img,
+  .product-modal-image-wrapper,
+  .product-form-image-wrapper,
+  .product-form-collection-image,
+  .banner {
+    background: #20242b !important;
+  }
+
+  .product-card:hover,
+  .product-display:hover,
+  .basket-item:hover {
+    border-color: #4a5260 !important;
+  }
+
+  .product-loading .product-card-img-wrapper,
+  .product-loading h2,
+  .product-loading p,
+  .product-loading span,
+  .react-loading-skeleton {
+    --base-color: #20242b;
+    --highlight-color: #2c323b;
+  }
+
+  .filters,
+  .filters-field,
+  .filters-action,
+  .sidenavigation {
+    background: #14171b;
+    border-color: #353b45;
+  }
+
+  .sidenavigation-menu,
+  .sidenavigation-menu h4 {
+    color: #d8dde3;
+  }
+
+  .sidenavigation-menu-active,
+  .sidenavigation-menu:hover {
+    background: #20242b;
+    color: #ffffff;
+  }
+
+  .footer {
+    background: #0d0f12;
+    border-top: 1px solid #252a31;
+  }
+
+  .pill,
+  .label-input,
+  .user-tab-nav {
+    background: #20242b;
+    border-color: #353b45;
+  }
+
+  .toast-error {
+    background: rgba(247, 45, 45, .16) !important;
+  }
+
+  .toast-info {
+    background: rgba(228, 165, 31, .16) !important;
+  }
+
+  .toast-success {
+    background: rgba(59, 150, 32, .16) !important;
+  }
+}

@@ -7,6 +7,7 @@ import UserNav from '@/views/account/components/UserAvatar';
 import Badge from './Badge';
 import FiltersToggle from './FiltersToggle';
 import SearchBar from './SearchBar';
+import ThemeToggle from './ThemeToggle';
 
 const Navigation = (props) => {
   const {
@@ -42,6 +43,7 @@ const Navigation = (props) => {
             </button>
           )}
         </BasketToggle>
+        <ThemeToggle />
         <ul className="mobile-navigation-menu">
           {user ? (
             <li className="mobile-navigation-item">
