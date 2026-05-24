@@ -136,6 +136,8 @@ html.theme-dark {
   .navigation-admin,
   .mobile-navigation,
   .product-search-header,
+  .auth,
+  .auth-message,
   .basket,
   .basket-header,
   .basket-checkout,
@@ -150,6 +152,22 @@ html.theme-dark {
     background: #171a1f !important;
     border-color: #353b45;
     box-shadow: 0 10px 30px rgba(0, 0, 0, .35);
+  }
+
+  .auth-divider h6 {
+    background: #171a1f;
+    color: #f5f7fa;
+  }
+
+  .auth-divider:before,
+  .auth-divider:after {
+    background: #353b45;
+  }
+
+  .auth-info,
+  .auth-info strong,
+  .auth-action span {
+    color: #d8dde3;
   }
 
   .is-nav-scrolled {
