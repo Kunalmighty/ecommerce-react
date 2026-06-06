@@ -1,5 +1,7 @@
 import { useDidMount } from '@/hooks';
 import { useEffect, useState } from 'react';
+import { getYaggaRecommendedProducts } from '@/data/yaggaProducts';
+import { isFirebaseConfigured } from '@/services/config';
 import firebase from '@/services/firebase';
 
 const useRecommendedProducts = (itemsCount) => {
@@ -9,6 +11,12 @@ const useRecommendedProducts = (itemsCount) => {
   const didMount = useDidMount(true);
 
   const fetchRecommendedProducts = async () => {
+    if (!isFirebaseConfigured) {
+      setRecommendedProducts(getYaggaRecommendedProducts(itemsCount));
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
       setError('');
@@ -17,7 +25,7 @@ const useRecommendedProducts = (itemsCount) => {
 
       if (docs.empty) {
         if (didMount) {
-          setError('No recommended products found.');
+          setRecommendedProducts(getYaggaRecommendedProducts(itemsCount));
           setLoading(false);
         }
       } else {
@@ -35,7 +43,7 @@ const useRecommendedProducts = (itemsCount) => {
       }
     } catch (e) {
       if (didMount) {
-        setError('Failed to fetch recommended products');
+        setRecommendedProducts(getYaggaRecommendedProducts(itemsCount));
         setLoading(false);
       }
     }

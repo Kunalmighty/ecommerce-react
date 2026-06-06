@@ -8,6 +8,10 @@
     background: $background-color;
     animation: fadeIn .5s ease;
 
+    .themed-logo {
+        height: 120px;
+    }
+
     img {
         width: 200px;
         height: 120px;
@@ -35,10 +39,18 @@
 .logo-symbol {
     width: 70px;
     height: 70px;
+    border-radius: 50%;
+    background: #111316;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.6rem;
+    font-weight: bold;
     animation: rotate 1s ease infinite;
 
-    .fill-white {
-        fill: #fff;
+    span {
+        line-height: 1;
     }
 }
 

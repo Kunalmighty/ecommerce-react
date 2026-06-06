@@ -73,7 +73,7 @@ const SearchBar = () => {
           onChange={onSearchChange}
           onKeyUp={onKeyUp}
           onFocus={onFocusInput}
-          placeholder="Search product..."
+          placeholder="Search Yagga pieces..."
           readOnly={isLoading}
           type="text"
           value={searchInput}
@@ -81,7 +81,7 @@ const SearchBar = () => {
         {filter.recent.length !== 0 && (
           <div className="searchbar-recent">
             <div className="searchbar-recent-header">
-              <h5>Recent Search</h5>
+              <h5>Recent Searches</h5>
               <h5
                 className="searchbar-recent-clear text-subtle"
                 onClick={onClearRecent}

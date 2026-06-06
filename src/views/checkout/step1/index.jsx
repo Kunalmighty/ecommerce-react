@@ -11,7 +11,7 @@ import { StepTracker } from '../components';
 import withCheckout from '../hoc/withCheckout';
 
 const OrderSummary = ({ basket, subtotal }) => {
-  useDocumentTitle('Check Out Step 1 | Salinaka');
+  useDocumentTitle('Checkout Step 1 | Yagga');
   useScrollTop();
   const dispatch = useDispatch();
   const history = useHistory();
@@ -23,7 +23,7 @@ const OrderSummary = ({ basket, subtotal }) => {
       <StepTracker current={1} />
       <div className="checkout-step-1">
         <h3 className="text-center">Order Summary</h3>
-        <span className="d-block text-center">Review items in your basket.</span>
+        <span className="d-block text-center">Review your Yagga pieces before checkout.</span>
         <br />
         <div className="checkout-items">
           {basket.map((product) => (

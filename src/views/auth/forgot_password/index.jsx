@@ -16,7 +16,7 @@ const ForgotPassword = () => {
   const [field, setField] = useState({});
 
   useScrollTop();
-  useDocumentTitle('Forgot Password | Salinaka');
+  useDocumentTitle('Forgot Password | Yagga');
   useEffect(() => {
     if (didMount) {
       setForgotPWStatus(authStatus);
@@ -42,7 +42,7 @@ const ForgotPassword = () => {
         </h5>
       )}
       <h2>Forgot Your Password?</h2>
-      <p>Enter your email address and we will send you a password reset email.</p>
+      <p>Enter your email address and we will send a reset link for your Yagga account.</p>
       <br />
       <input
         field="email"

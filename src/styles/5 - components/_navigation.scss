@@ -52,6 +52,19 @@
   justify-content: space-between;
 }
 
+.themed-logo {
+  display: block;
+  height: 100%;
+}
+
+.themed-logo img {
+  display: block;
+}
+
+.themed-logo .themed-logo-dark {
+  display: none;
+}
+
 .navigation-menu {
   display: flex;
   align-items: center;

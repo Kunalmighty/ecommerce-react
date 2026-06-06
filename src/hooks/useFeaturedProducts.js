@@ -1,5 +1,7 @@
 import { useDidMount } from '@/hooks';
 import { useEffect, useState } from 'react';
+import { getYaggaFeaturedProducts } from '@/data/yaggaProducts';
+import { isFirebaseConfigured } from '@/services/config';
 import firebase from '@/services/firebase';
 
 const useFeaturedProducts = (itemsCount) => {
@@ -9,6 +11,12 @@ const useFeaturedProducts = (itemsCount) => {
   const didMount = useDidMount(true);
 
   const fetchFeaturedProducts = async () => {
+    if (!isFirebaseConfigured) {
+      setFeaturedProducts(getYaggaFeaturedProducts(itemsCount));
+      setLoading(false);
+      return;
+    }
+
     try {
       setLoading(true);
       setError('');
@@ -17,7 +25,7 @@ const useFeaturedProducts = (itemsCount) => {
 
       if (docs.empty) {
         if (didMount) {
-          setError('No featured products found.');
+          setFeaturedProducts(getYaggaFeaturedProducts(itemsCount));
           setLoading(false);
         }
       } else {
@@ -35,7 +43,7 @@ const useFeaturedProducts = (itemsCount) => {
       }
     } catch (e) {
       if (didMount) {
-        setError('Failed to fetch featured products');
+        setFeaturedProducts(getYaggaFeaturedProducts(itemsCount));
         setLoading(false);
       }
     }

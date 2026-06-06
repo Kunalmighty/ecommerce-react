@@ -20,9 +20,14 @@
 }
 
 .footer-logo {
-  width: 15rem;
+  display: inline-block;
   height: 6rem;
-  object-fit: contain;
+
+  img {
+    width: 15rem;
+    height: 6rem;
+    object-fit: contain;
+  }
 }
 
 .footer-col-2 {

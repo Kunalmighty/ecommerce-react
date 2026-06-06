@@ -1,11 +1,11 @@
 import { MessageDisplay } from '@/components/common';
 import { ProductShowcaseGrid } from '@/components/product';
 import { useDocumentTitle, useRecommendedProducts, useScrollTop } from '@/hooks';
-import bannerImg from '@/images/banner-girl-1.png';
+import bannerImg from '@/images/yagga-family.jpg';
 import React from 'react';
 
 const RecommendedProducts = () => {
-  useDocumentTitle('Recommended Products | Salinaka');
+  useDocumentTitle('Family Unit Picks | Yagga');
   useScrollTop();
 
   const {
@@ -20,10 +20,14 @@ const RecommendedProducts = () => {
       <div className="featured">
         <div className="banner">
           <div className="banner-desc">
-            <h1>Recommended Products</h1>
+            <h1>Family Unit Picks</h1>
+            <p>
+              Coordinated folklore pieces for men, women, kids, and dogs, designed with the same
+              premium fabric intelligence across every size.
+            </p>
           </div>
           <div className="banner-img">
-            <img src={bannerImg} alt="" />
+            <img src={bannerImg} alt="Yagga coordinated family and dog apparel" />
           </div>
         </div>
         <div className="display">

@@ -12,20 +12,20 @@ import PropType from 'prop-types';
 import React from 'react';
 import * as Yup from 'yup';
 
-// Default brand names that I used. You can use what you want
 const brandOptions = [
-  { value: 'Salt Maalat', label: 'Salt Maalat' },
-  { value: 'Betsin Maalat', label: 'Betsin Maalat' },
-  { value: 'Sexbomb', label: 'Sexbomb' },
-  { value: 'Black Kibal', label: 'Black Kibal' }
+  { value: 'Yagga Street', label: 'Yagga Street' },
+  { value: 'Yagga Active', label: 'Yagga Active' },
+  { value: 'Yagga Craft', label: 'Yagga Craft' },
+  { value: 'Yagga Kids', label: 'Yagga Kids' },
+  { value: 'Yagga Canine', label: 'Yagga Canine' }
 ];
 
 const FormSchema = Yup.object().shape({
   name: Yup.string()
-    .required('Product name is required.')
-    .max(60, 'Product name must only be less than 60 characters.'),
+    .required('Piece name is required.')
+    .max(60, 'Piece name must only be less than 60 characters.'),
   brand: Yup.string()
-    .required('Brand name is required.'),
+    .required('Line name is required.'),
   price: Yup.number()
     .positive('Price is invalid.')
     .integer('Price should be an integer.')
@@ -38,15 +38,15 @@ const FormSchema = Yup.object().shape({
     .required('Max quantity is required.'),
   keywords: Yup.array()
     .of(Yup.string())
-    .min(1, 'Please enter at least 1 keyword for this product.'),
+    .min(1, 'Please enter at least 1 keyword for this piece.'),
   sizes: Yup.array()
     .of(Yup.number())
-    .min(1, 'Please enter a size for this product.'),
+    .min(1, 'Please enter a size for this piece.'),
   isFeatured: Yup.boolean(),
   isRecommended: Yup.boolean(),
   availableColors: Yup.array()
     .of(Yup.string().required())
-    .min(1, 'Please add a default color for this product.')
+    .min(1, 'Please add a default color for this piece.')
 });
 
 const ProductForm = ({ product, onSubmit, isLoading }) => {
@@ -75,8 +75,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
       onSubmit({
         ...form,
         quantity: 1,
-        // due to firebase function billing policy, let's add lowercase version
-        // of name here instead in firebase functions
+        // due to firebase function billing policy, add lowercase version here
         name_lower: form.name.toLowerCase(),
         dateAdded: new Date().getTime(),
         image: imageFile?.image?.file || product.imageUrl,
@@ -84,7 +83,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
       });
     } else {
       // eslint-disable-next-line no-alert
-      alert('Product thumbnail image is required.');
+      alert('Piece thumbnail image is required.');
     }
   };
 
@@ -105,7 +104,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     disabled={isLoading}
                     name="name"
                     type="text"
-                    label="* Product Name"
+                    label="* Piece Name"
                     placeholder="Gago"
                     style={{ textTransform: 'capitalize' }}
                     component={CustomInput}
@@ -119,8 +118,8 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                     iid="brand"
                     options={brandOptions}
                     disabled={isLoading}
-                    placeholder="Select/Create Brand"
-                    label="* Brand"
+                    placeholder="Select/Create Line"
+                    label="* Line"
                   />
                 </div>
               </div>
@@ -130,7 +129,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                   name="description"
                   id="description"
                   rows={3}
-                  label="* Product Description"
+                  label="* Piece Description"
                   component={CustomTextarea}
                 />
               </div>
@@ -274,7 +273,7 @@ const ProductForm = ({ product, onSubmit, isLoading }) => {
                 >
                   {isLoading ? <LoadingOutlined /> : <CheckOutlined />}
                   &nbsp;
-                  {isLoading ? 'Saving Product' : 'Save Product'}
+                  {isLoading ? 'Saving Piece' : 'Save Piece'}
                 </button>
               </div>
             </div>

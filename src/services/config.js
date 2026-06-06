@@ -8,4 +8,8 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
+export const isFirebaseConfigured = Object.values(firebaseConfig).every((value) => (
+  value && !String(value).toLowerCase().includes('your')
+));
+
 export default firebaseConfig;

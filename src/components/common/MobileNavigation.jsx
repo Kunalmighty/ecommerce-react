@@ -8,6 +8,7 @@ import Badge from './Badge';
 import FiltersToggle from './FiltersToggle';
 import SearchBar from './SearchBar';
 import ThemeToggle from './ThemeToggle';
+import ThemedLogo from './ThemedLogo';
 
 const Navigation = (props) => {
   const {
@@ -24,7 +25,7 @@ const Navigation = (props) => {
       <div className="mobile-navigation-main">
         <div className="mobile-navigation-logo">
           <Link onClick={onClickLink} to={HOME}>
-            <h2>SALINAKA</h2>
+            <ThemedLogo />
           </Link>
         </div>
 

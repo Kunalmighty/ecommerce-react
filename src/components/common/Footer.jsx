@@ -1,7 +1,7 @@
 import * as Route from '@/constants/routes';
-import logo from '@/images/logo-full.png';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import ThemedLogo from './ThemedLogo';
 
 const Footer = () => {
   const { pathname } = useLocation();
@@ -14,7 +14,7 @@ const Footer = () => {
   return !visibleOnlyPath.includes(pathname) ? null : (
     <footer className="footer">
       <div className="footer-col-2">
-        <img alt="Footer logo" className="footer-logo" src={logo} />
+        <ThemedLogo alt="Footer logo" className="footer-logo" />
         <h5>
           &copy;&nbsp;
           {new Date().getFullYear()}

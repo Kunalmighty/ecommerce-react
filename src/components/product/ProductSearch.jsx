@@ -13,7 +13,7 @@ const ProductSearch = () => {
     filter: state.filter,
     products: state.products.items,
     isLoading: state.app.loading,
-    productsLength: state.products.length
+    productsLength: state.products.items.length
   }));
   const dispatch = useDispatch();
   const searchInput = useRef(null);
@@ -55,7 +55,7 @@ const ProductSearch = () => {
             className="product-search-input"
             onChange={onSearchChange}
             onKeyUp={onKeyUp}
-            placeholder="Search for product..."
+            placeholder="Search tees, hoodies, activewear..."
             ref={searchInput}
             type="text"
           />
@@ -99,7 +99,7 @@ const ProductSearch = () => {
           )}
         </div>
         <div className="product-search-filter">
-          <h5 className="margin-0">Choose Filters</h5>
+          <h5 className="margin-0">Refine the drop</h5>
         </div>
         <div className="product-search-filter-sub">
           <Filters

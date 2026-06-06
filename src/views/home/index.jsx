@@ -5,13 +5,12 @@ import { FEATURED_PRODUCTS, RECOMMENDED_PRODUCTS, SHOP } from '@/constants/route
 import {
   useDocumentTitle, useFeaturedProducts, useRecommendedProducts, useScrollTop
 } from '@/hooks';
-import bannerImg from '@/images/banner-girl.png';
+import bannerImg from '@/images/yagga-hero.jpg';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-
 const Home = () => {
-  useDocumentTitle('Salinaka | Home');
+  useDocumentTitle('Yagga | Premium Indo-Centric Lifestyle Wear');
   useScrollTop();
 
   const {
@@ -33,25 +32,25 @@ const Home = () => {
         <div className="banner">
           <div className="banner-desc">
             <h1 className="text-thin">
-              <strong>See</strong>
-              &nbsp;everything with&nbsp;
-              <strong>Clarity</strong>
+              <strong>Yeah</strong>
+              &nbsp;to the&nbsp;
+              <strong>Aga Within</strong>
             </h1>
             <p>
-              Buying eyewear should leave you happy and good-looking, with money in your pocket.
-              Glasses, sunglasses, and contacts—we’ve got your eyes covered.
+              Premium streetwear and activewear charged with Indian folklore, technical fabrics,
+              and family-wide energy for adults, kids, and dogs.
             </p>
             <br />
             <Link to={SHOP} className="button">
-              Shop Now &nbsp;
+              Shop the Drop &nbsp;
               <ArrowRightOutlined />
             </Link>
           </div>
-          <div className="banner-img"><img src={bannerImg} alt="" /></div>
+          <div className="banner-img"><img src={bannerImg} alt="Yagga folklore streetwear collection" /></div>
         </div>
         <div className="display">
           <div className="display-header">
-            <h1>Featured Products</h1>
+            <h1>Signature Drops</h1>
             <Link to={FEATURED_PRODUCTS}>See All</Link>
           </div>
           {(errorFeatured && !isLoadingFeatured) ? (
@@ -69,7 +68,7 @@ const Home = () => {
         </div>
         <div className="display">
           <div className="display-header">
-            <h1>Recommended Products</h1>
+            <h1>Family Unit Picks</h1>
             <Link to={RECOMMENDED_PRODUCTS}>See All</Link>
           </div>
           {(errorRecommended && !isLoadingRecommended) ? (

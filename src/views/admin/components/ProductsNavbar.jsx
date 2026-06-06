@@ -12,7 +12,7 @@ const ProductsNavbar = (props) => {
   return (
     <div className="product-admin-header">
       <h3 className="product-admin-header-title">
-        Products &nbsp;
+        Pieces &nbsp;
         (
         {`${productsCount} / ${totalProductsCount}`}
         )
@@ -31,7 +31,7 @@ const ProductsNavbar = (props) => {
         type="button"
       >
         <PlusOutlined />
-        &nbsp; Add New Product
+        &nbsp; Add New Piece
       </button>
     </div>
   );

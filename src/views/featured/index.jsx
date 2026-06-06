@@ -1,11 +1,11 @@
 import { MessageDisplay } from '@/components/common';
 import { ProductShowcaseGrid } from '@/components/product';
 import { useDocumentTitle, useFeaturedProducts, useScrollTop } from '@/hooks';
-import bannerImg from '@/images/banner-guy.png';
+import bannerImg from '@/images/yagga-featured.jpg';
 import React from 'react';
 
 const FeaturedProducts = () => {
-  useDocumentTitle('Featured Products | Salinaka');
+  useDocumentTitle('Signature Drops | Yagga');
   useScrollTop();
 
   const {
@@ -20,10 +20,14 @@ const FeaturedProducts = () => {
       <div className="featured">
         <div className="banner">
           <div className="banner-desc">
-            <h1>Featured Products</h1>
+            <h1>Signature Drops</h1>
+            <p>
+              Oversized silhouettes, crisp collars, lotus graphics, and peacock-bright details
+              built for the gym-to-cafe lifestyle.
+            </p>
           </div>
           <div className="banner-img">
-            <img src={bannerImg} alt="" />
+            <img src={bannerImg} alt="Yagga signature streetwear and activewear details" />
           </div>
         </div>
         <div className="display">

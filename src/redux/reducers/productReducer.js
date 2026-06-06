@@ -4,6 +4,7 @@ import {
   GET_PRODUCTS_SUCCESS, REMOVE_PRODUCT_SUCCESS,
   SEARCH_PRODUCT_SUCCESS
 } from '@/constants/constants';
+import YAGGA_PRODUCTS from '@/data/yaggaProducts';
 
 const initState = {
   lastRefKey: null,
@@ -12,9 +13,9 @@ const initState = {
 };
 
 export default (state = {
-  lastRefKey: null,
-  total: 0,
-  items: [],
+  lastRefKey: 'yagga-seed',
+  total: YAGGA_PRODUCTS.length,
+  items: YAGGA_PRODUCTS,
   searchedProducts: initState
 }, action) => {
   switch (action.type) {

@@ -175,10 +175,12 @@ html.theme-dark {
     box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
   }
 
-  .logo img,
-  .footer-logo img,
-  img[alt='Footer logo'] {
-    filter: invert(1) grayscale(1) contrast(1.15);
+  .themed-logo .themed-logo-light {
+    display: none;
+  }
+
+  .themed-logo .themed-logo-dark {
+    display: block;
   }
 
   .searchbar-input,

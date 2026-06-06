@@ -33,7 +33,7 @@ const ProductList = (props) => {
 
   if (filteredProducts.length === 0 && !isLoading) {
     return (
-      <MessageDisplay message={requestStatus?.message || 'No products found.'} />
+      <MessageDisplay message={requestStatus?.message || 'No Yagga pieces found.'} />
     );
   } if (filteredProducts.length === 0 && requestStatus) {
     return (
@@ -56,7 +56,7 @@ const ProductList = (props) => {
             onClick={fetchProducts}
             type="button"
           >
-            {isFetching ? 'Fetching Items...' : 'Show More Items'}
+            {isFetching ? 'Loading More Pieces...' : 'Show More Pieces'}
           </button>
         </div>
       )}

@@ -57,6 +57,16 @@
   flex-grow: 1;
   padding-left: .5rem;
   margin-right: $xl-size;
+
+  .themed-logo {
+    height: 4.5rem;
+  }
+
+  img {
+    width: 12rem;
+    height: 4.5rem;
+    object-fit: contain;
+  }
 }
 
 .mobile-navigation-search {

@@ -35,7 +35,7 @@ const Search = ({ match }) => {
       <main className="content">
         <MessageDisplay
           message={store.requestStatus}
-          desc="Try using correct filters or keyword."
+          desc="Try another motif, line, or apparel keyword."
         />
       </main>
     );
@@ -50,7 +50,7 @@ const Search = ({ match }) => {
               <div className="product-list-header">
                 <div className="product-list-header-title">
                   <h5>
-                    {`Found ${store.products.length} ${store.products.length > 1 ? 'products' : 'product'} with keyword ${searchKey}`}
+                    {`Found ${store.products.length} ${store.products.length > 1 ? 'pieces' : 'piece'} with keyword ${searchKey}`}
                   </h5>
                 </div>
               </div>
@@ -65,7 +65,7 @@ const Search = ({ match }) => {
   return (
     <main className="content">
       <div className="loader">
-        <h4>Searching Product...</h4>
+        <h4>Searching Yagga...</h4>
         <br />
         <LoadingOutlined style={{ fontSize: '3rem' }} />
       </div>

@@ -13,6 +13,7 @@ import {
 } from 'redux-saga/effects';
 import { setLoading, setRequestStatus } from '@/redux/actions/miscActions';
 import { history } from '@/routers/AppRouter';
+import { isFirebaseConfigured } from '@/services/config';
 import firebase from '@/services/firebase';
 import {
   addProductSuccess,
@@ -37,6 +38,17 @@ function* handleAction(location, message, status) {
   yield call(displayActionMessage, message, status);
 }
 
+function getLocalSearchResults(products, searchKey) {
+  const keyword = searchKey.toLowerCase();
+
+  return products.filter((product) => (
+    product.name?.toLowerCase().includes(keyword)
+    || product.brand?.toLowerCase().includes(keyword)
+    || product.description?.toLowerCase().includes(keyword)
+    || product.keywords?.some((item) => item.toLowerCase().includes(keyword))
+  ));
+}
+
 function* productSaga({ type, payload }) {
   switch (type) {
     case GET_PRODUCTS:
@@ -46,7 +58,7 @@ function* productSaga({ type, payload }) {
         const result = yield call(firebase.getProducts, payload);
 
         if (result.products.length === 0) {
-          handleError('No items found.');
+          handleError({ message: 'No Yagga pieces found.' });
         } else {
           yield put(getProductsSuccess({
             products: result.products,
@@ -180,22 +192,54 @@ function* productSaga({ type, payload }) {
         yield put(clearSearchState());
 
         const state = yield select();
+        const localResults = getLocalSearchResults(state.products.items, payload.searchKey);
+
+        if (!isFirebaseConfigured) {
+          if (localResults.length === 0) {
+            yield handleError({ message: 'No Yagga pieces found.' });
+            yield put(clearSearchState());
+          } else {
+            yield put(searchProductSuccess({
+              products: localResults,
+              lastKey: state.products.searchedProducts.lastRefKey,
+              total: localResults.length
+            }));
+            yield put(setRequestStatus(''));
+            yield put(setLoading(false));
+          }
+          break;
+        }
+
         const result = yield call(firebase.searchProducts, payload.searchKey);
 
-        if (result.products.length === 0) {
-          yield handleError({ message: 'No product found.' });
+        if (result.products.length === 0 && localResults.length === 0) {
+          yield handleError({ message: 'No Yagga pieces found.' });
           yield put(clearSearchState());
         } else {
           yield put(searchProductSuccess({
-            products: result.products,
+            products: result.products.length ? result.products : localResults,
             lastKey: result.lastKey ? result.lastKey : state.products.searchedProducts.lastRefKey,
-            total: result.total ? result.total : state.products.searchedProducts.total
+            total: result.total ? result.total : localResults.length
           }));
           yield put(setRequestStatus(''));
         }
         yield put(setLoading(false));
       } catch (e) {
-        yield handleError(e);
+        const state = yield select();
+        const localResults = getLocalSearchResults(state.products.items, payload.searchKey);
+
+        if (localResults.length === 0) {
+          yield handleError({ message: 'No Yagga pieces found.' });
+          yield put(clearSearchState());
+        } else {
+          yield put(searchProductSuccess({
+            products: localResults,
+            lastKey: state.products.searchedProducts.lastRefKey,
+            total: localResults.length
+          }));
+          yield put(setRequestStatus(''));
+          yield put(setLoading(false));
+        }
       }
       break;
     }
