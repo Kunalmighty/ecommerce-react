@@ -2,16 +2,44 @@ import app from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import "firebase/storage";
-import firebaseConfig from "./config";
+import firebaseConfig, { isFirebaseConfigured } from "./config";
 
 class Firebase {
   constructor() {
-    app.initializeApp(firebaseConfig);
+    this.isConfigured = isFirebaseConfigured;
+
+    if (!this.isConfigured) {
+      const unavailable = () => Promise.reject(this.getUnavailableError());
+
+      this.storage = null;
+      this.db = null;
+      this.auth = {
+        currentUser: null,
+        createUserWithEmailAndPassword: unavailable,
+        onAuthStateChanged: (callback) => {
+          callback(null);
+          return () => {};
+        },
+        sendPasswordResetEmail: unavailable,
+        setPersistence: () => Promise.resolve(),
+        signInWithEmailAndPassword: unavailable,
+        signInWithPopup: unavailable,
+        signOut: unavailable
+      };
+
+      return;
+    }
+
+    if (!app.apps.length) {
+      app.initializeApp(firebaseConfig);
+    }
 
     this.storage = app.storage();
     this.db = app.firestore();
     this.auth = app.auth();
   }
+
+  getUnavailableError = () => new Error("Firebase is not configured for this environment.");
 
   // AUTH ACTIONS ------------
 
